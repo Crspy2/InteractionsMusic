@@ -3,8 +3,6 @@ import lavalink
 from interactions import CommandContext
 from interactions.ext.lavalink import VoiceClient, Player, VoiceState
 
-import config
-from utils.Check import Check
 from utils.sendPlayingSongEmbed import sendPlayingSongEmbed
 
 
