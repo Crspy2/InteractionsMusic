@@ -3,6 +3,7 @@ import lavalink
 from interactions import CommandContext
 from interactions.ext.lavalink import VoiceClient, Player, VoiceState
 
+import config
 from utils.sendPlayingSongEmbed import sendPlayingSongEmbed
 
 
@@ -19,7 +20,7 @@ class NowPlaying(interactions.Extension):
             player = await voice.connect()
 
         if not player.is_playing:
-            return await ctx.channel.send(f"{ctx.author.mention} There is currently no song!")
+            return await ctx.send(f"{config.ErrorEmoji} There is currently no song!")
 
         await sendPlayingSongEmbed(ctx, player.current)
 

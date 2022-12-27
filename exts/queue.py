@@ -1,6 +1,6 @@
 import interactions
 import lavalink
-from interactions import CommandContext
+from interactions import CommandContext, ComponentContext
 from interactions.ext.lavalink import Player, VoiceState
 from lavalink import AudioTrack
 
@@ -12,7 +12,7 @@ class Queue(interactions.Extension):
         self.bot = bot
 
     @interactions.extension_command()
-    async def queue(self, ctx: CommandContext):
+    async def queue(self, ctx: CommandContext | ComponentContext):
         """Display the queue"""
         voice: VoiceState = ctx.author.voice
         player: Player

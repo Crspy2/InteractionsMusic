@@ -25,6 +25,7 @@ class Stats(interactions.Extension):
 
         playingServerCount = ctx.client.guilds
 
+
         embed = interactions.Embed(title=f"{self.client.me.name}'s stats",
                                    color=config.EMBEDCOLOR)
         embed.set_thumbnail(url=f'{self.client.me.icon_url}')
@@ -38,5 +39,5 @@ class Stats(interactions.Extension):
         await ctx.send(embeds=embed)
 
 
-def setup(bot):
-    Stats(bot)
+def setup(client):
+    Stats(client)

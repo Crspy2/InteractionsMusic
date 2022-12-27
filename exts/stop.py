@@ -1,5 +1,5 @@
 import interactions
-from interactions import Message, CommandContext
+from interactions import Message, CommandContext, ComponentContext
 from interactions.ext.lavalink import VoiceClient, VoiceState, Player
 
 import config

@@ -16,18 +16,6 @@ logger.debug(
     config.DEBUG,
 )
 
-TOKEN = None
-try:
-    if not (TOKEN := os.environ.get("TOKEN")):
-        TOKEN = None
-    DEV_GUILD = interactions.MISSING
-except TypeError:
-    pass
-finally:
-    if TOKEN is None:
-        logger.critical("TOKEN variable not set. Cannot continue")
-        sys.exit(1)
-
 client = VoiceClient(
     token=os.environ.get("TOKEN"),
     intents=Intents.GUILD_VOICE_STATES,
