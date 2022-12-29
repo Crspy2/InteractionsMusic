@@ -309,15 +309,19 @@ class Play(interactions.Extension):
             custom_id="pause/resume"
         )
 
-        row = interactions.ActionRow(
-            components=[stop_button, skip_button, queue_button, pauseresume_button]
-        )
+        if len(player.queue) > 1:
+            row = interactions.ActionRow(
+                components=[stop_button, skip_button, queue_button, pauseresume_button]
+            )
+        else:
+            row = interactions.ActionRow(
+                components=[stop_button, pauseresume_button]
+            )
 
 
         if player.is_playing:
             return await msg.edit(
-                content=f"{config.SuccessEmoji} Added **{track.title}** (`{lavalink.format_time(track.duration.real)}`) to the queue",
-                components=row)
+                content=f"{config.SuccessEmoji} Added **{track.title}** (`{lavalink.format_time(track.duration.real)}`) to the queue")
         await player.play()
         return await msg.edit(
             content=f"{config.MusicEmoji} Now Playing **{track.title}** (`{lavalink.format_time(track.duration.real)}`)",

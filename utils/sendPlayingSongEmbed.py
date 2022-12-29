@@ -81,4 +81,4 @@ async def sendPlayingSongEmbed(ctx: CommandContext, track: AudioTrack):
         name="DJ Role :",
         value=f"`@role`"
     )
-    await ctx.send(embeds=embed)
+    return embed
