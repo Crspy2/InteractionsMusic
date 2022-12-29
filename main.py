@@ -43,13 +43,13 @@ exts = [
 if exts or exts == []:
     logger.info("Importing %s cogs: %s", len(exts), ", ".join(exts))
 else:
-    logger.warning("Could not import any music cogs!")
+    logger.warning("Could not import any cogs!")
 
 for ext in exts:
     try:
         client.load(f"exts.{ext}")
     except Exception:  # noqa
-        logger.error(f"Could not load a music cog: {ext}", exc_info=True)
+        logger.error(f"Could not load a cog: {ext}", exc_info=True)
 
 client.load("interactions.ext.enhanced")
 
