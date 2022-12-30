@@ -13,16 +13,7 @@ class Volume(interactions.Extension):
         self.client: VoiceClient = client
 
     @interactions.extension_command()
-        # name="volume",
-        # options=[
-        #     interactions.Option(
-        #         name="volume",
-        #         description="The percentage to change the volume to (min:0, max:200)",
-        #         type=interactions.OptionType.INTEGER,
-        #         min_values=0,
-        #         max_values=200,
-        #     )])
-    @interactions.option(name="volume", description="The percentage to change the volume to (min:0, max:200)",
+    @interactions.option("The percentage to change the volume to (min:0, max:200)",
                          type=int, min_values=0, max_values=200)
     async def volume(self, ctx: CommandContext, volume: Optional[int] = None) -> Message | None:
         """Change the output volume of the bot!"""

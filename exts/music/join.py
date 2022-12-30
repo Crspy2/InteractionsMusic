@@ -13,7 +13,7 @@ class Join(interactions.Extension):
     async def join(self, ctx: interactions.CommandContext):
         """Make the bot join the voice channel that you are currently in!"""
         if not await Check().userInVoiceChannel(ctx): return
-        if not await Check().clientInVoiceChannel(ctx): return
+        if await Check().clientInVoiceChannel(ctx): return
 
         voice: VoiceState = ctx.author.voice
         player: Player

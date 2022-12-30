@@ -76,7 +76,7 @@ class Skip(interactions.Extension):
             components=[stop_button, skip_button, queue_button, pauseresume_button]
         )
 
-        await ctx.channel.send(
+        await ctx.send(
             content=f"{config.MusicEmoji} Now Playing **{player.current.title}** (`{lavalink.format_time(player.current.duration.real)}`)",
             components=row)
 

@@ -14,6 +14,5 @@ LoadingEmoji = "<a:lLoading:1056517683765579866>"
 MusicEmoji = "<:music:1045896090442006558>"
 SuccessEmoji = "<a:lSuccess:1056517454567841822>"
 ErrorEmoji = "🚫"
-# ErrorEmoji = "<:error:1045904092612005888>"
 
-EMBEDCOLOR = 2e3136
+EMBEDCOLOR = 0x2e3136

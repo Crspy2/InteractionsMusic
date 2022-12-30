@@ -10,8 +10,6 @@ from lavalink import AudioTrack
 from youtubesearchpython import PlaylistsSearch
 
 import config
-import exts
-from exts import skip, stop, queue
 from utils.Check import Check
 
 

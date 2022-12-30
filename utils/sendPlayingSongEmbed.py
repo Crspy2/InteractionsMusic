@@ -48,10 +48,6 @@ async def sendPlayingSongEmbed(ctx: CommandContext, track: AudioTrack):
     if track.identifier:
         embed.set_thumbnail(url=f"https://img.youtube.com/vi/{track.identifier}/default.jpg")
     embed.add_field(
-        name="Requested by :",
-        value=f"`{track.requester}`"
-    )
-    embed.add_field(
         name="Duration :",
         value=f"`{trackDuration}`"
     )
@@ -61,7 +57,7 @@ async def sendPlayingSongEmbed(ctx: CommandContext, track: AudioTrack):
     )
     embed.add_field(
         name="Loop song:",
-        value=isLoop.replace("1", f"{config.SuccessEmoji}")
+        value=isLoop.replace("1", "<a:lSuccess:1056517454567841822>")
         .replace("0", f"{config.ErrorEmoji}")
     )
     embed.add_field(
@@ -70,15 +66,8 @@ async def sendPlayingSongEmbed(ctx: CommandContext, track: AudioTrack):
         .replace("0", f"{config.ErrorEmoji}")
     )
     embed.add_field(
-        name="Lyrics :",
-        value=f"`/lyrics`"
-    )
-    embed.add_field(
         name="Queue :",
         value=f"`{queueSize} song(s) ({lavalink.format_time(queueDur)})`",
     )
-    embed.add_field(
-        name="DJ Role :",
-        value=f"`@role`"
-    )
-    return embed
+    embed.set_footer(f"Song requested by <@{track.requester}>")
+    await ctx.send(embeds=embed)

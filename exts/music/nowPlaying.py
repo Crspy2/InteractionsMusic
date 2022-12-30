@@ -22,7 +22,7 @@ class NowPlaying(interactions.Extension):
         if not player.is_playing:
             return await ctx.send(f"{config.ErrorEmoji} There is currently no song!")
 
-        await ctx.send(await sendPlayingSongEmbed(ctx, player.current))
+        await sendPlayingSongEmbed(ctx, player.current)
 
 
 def setup(client):

@@ -2,8 +2,6 @@ import interactions
 import psutil
 import platform
 
-import datetime
-
 from interactions import CommandContext
 from interactions.ext.lavalink import VoiceClient
 
@@ -23,18 +21,16 @@ class Stats(interactions.Extension):
         except:
             userCount = None
 
-        playingServerCount = ctx.client.guilds
-
-
         embed = interactions.Embed(title=f"{self.client.me.name}'s stats",
                                    color=config.EMBEDCOLOR)
         embed.set_thumbnail(url=f'{self.client.me.icon_url}')
-        embed.add_field(name="Statistics :", value=f"`Servers : {serverCount}\nUsers : {userCount}`", inline=True)
-        embed.add_field(name="Using :",
-                        value=f"`Python : v{platform.python_version()}\ninteractions.py : v{interactions.__version__}`",
+        embed.add_field(name="__**Statistics:**__",
+                        value=f"**Servers:** `{serverCount}`", inline=True)
+        embed.add_field(name="__**Using**__:",
+                        value=f"**Python:** `v{platform.python_version()}\ninteractions.py : v{interactions.__version__}`",
                         inline=True)
-        embed.add_field(name="RAM :", value=f"`Used : {psutil.virtual_memory().percent}%`", inline=True)
-        embed.add_field(name="Music :", value=f"Playing music on `{playingServerCount}` servers", inline=False)
+        embed.add_field(name="__**RAM**__:",
+                        value=f"**Used:** `{psutil.virtual_memory().percent}%`", inline=True)
         embed.set_footer(text=f"Requested by {ctx.author}", icon_url=ctx.author.get_avatar_url())
         await ctx.send(embeds=embed)
 

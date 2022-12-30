@@ -4,7 +4,7 @@ from interactions import CommandContext
 from interactions.ext.lavalink import VoiceClient, Player, VoiceState
 
 import config
-from exts.play import noResultFound
+from exts.music.play import noResultFound
 from utils.Check import Check
 
 

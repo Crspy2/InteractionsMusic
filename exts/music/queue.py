@@ -1,7 +1,7 @@
 import interactions
 import lavalink
 from interactions import CommandContext, ComponentContext
-from interactions.ext.lavalink import Player, VoiceState
+from interactions.ext.lavalink import Player, VoiceState, VoiceClient
 from lavalink import AudioTrack
 
 import config
@@ -29,18 +29,20 @@ class Queue(interactions.Extension):
             description="The current songs in the queue are:",
             color=config.EMBEDCOLOR
         )
-
+        QueueDuration = 0
         for i in range(len(player.queue)):
+            QueueDuration += tracks[i].duration.real
             trackDuration = lavalink.format_time(tracks[i].duration.real)
             trackTitle = tracks[i].title.replace("*", "\\*")
 
             embed.add_field(
-                name=f"**{tracks[i].position}: [{trackTitle}]({tracks[i].uri})** (`{trackDuration}`)",
+                name=f"**{tracks[i].position + 1}: [{trackTitle}]({tracks[i].uri})** (`{trackDuration}`)",
                 value=f"Uploaded by: {tracks[i].author}"
-            )
 
+            )
+        embed.set_footer(f"Total duration: {lavalink.format_time(QueueDuration)} | {len(tracks)} Tracks")
         await ctx.send(embeds=embed)
 
 
-def setup(client):
+def setup(client: VoiceClient):
     Queue(client)
