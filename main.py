@@ -20,14 +20,20 @@ logger.debug(
 client = VoiceClient(
     token=os.environ.get("TOKEN"),
     intents=Intents.GUILD_VOICE_STATES,
-    default_scope=1033179010487812127,
     logging=logging.DEBUG,
 )
 
 
 @client.event
-async def on_ready():
-    logger.info("Logged in")
+async def on_start():
+    await client.change_presence(
+        interactions.ClientPresence(
+            status=interactions.StatusType.ONLINE,
+            activities=[
+                interactions.PresenceActivity(name="/play <song>", type=interactions.PresenceActivityType.LISTENING)
+            ]
+        )
+    )
 
 if config.spotifyClientID != "":
     spotifyAppToken = tekore.request_client_token(config.spotifyClientID, config.spotifyClientSecret)

@@ -65,9 +65,5 @@ async def sendPlayingSongEmbed(ctx: CommandContext, track: AudioTrack):
         value=isLoopQueue.replace("1", f"{config.SuccessEmoji}")
         .replace("0", f"{config.ErrorEmoji}")
     )
-    embed.add_field(
-        name="Queue :",
-        value=f"`{queueSize} song(s) ({lavalink.format_time(queueDur)})`",
-    )
     embed.set_footer(f"Song requested by <@{track.requester}>")
     await ctx.send(embeds=embed)
