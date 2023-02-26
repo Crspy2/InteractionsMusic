@@ -1,9 +1,8 @@
 DEBUG = False
 playlistLimit = 15
 
-spotifyClientID = "ce6f6afcc6e44e3c87a292ea0d998a13"
-spotifyClientSecret = "52782343bba1482aad3d940406c39ee5"
-
+spotifyClientID = "Get from -> https://developer.spotify.com/dashboard/"
+spotifyClientSecret = "Get from -> https://developer.spotify.com/dashboard/"
 
 YouTubeLogo = "<:youtube:1046296304839577600>"
 SpotifyLogo = "<:spotify:1055778165903077387>"
